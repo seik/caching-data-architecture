@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VADG CACHE</string>
+
+    <string name="repos">Repositorios</string>
+    <string name="followers">Seguidores</string>
+
+    <string name="userIdentity">%1$s - %2$s</string>
+    <string name="error">Hubo algún problema al cargar los datos.</string>
+</resources>
