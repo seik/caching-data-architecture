@@ -8,8 +8,10 @@ import dagger.Module;
 import dagger.Provides;
 import io.github.seik.vadgcache.data.MainRepository;
 import io.github.seik.vadgcache.retrofit.GithubAPI;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -23,19 +25,24 @@ public class AppModule {
 
     private Application application;
 
-
     public AppModule(Application application) {
         this.application = application;
     }
 
-
     @Provides
     @Singleton
     GithubAPI provideGitHubApi() {
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient.Builder builder = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(builder.build())
                 .build();
 
         return retrofit.create(GithubAPI.class);

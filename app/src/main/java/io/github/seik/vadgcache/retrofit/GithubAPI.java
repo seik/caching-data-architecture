@@ -4,9 +4,9 @@ import java.util.List;
 
 import io.github.seik.vadgcache.models.Repo;
 import io.github.seik.vadgcache.models.User;
+import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import rx.Observable;
 
 /**
  * Created by Iván
@@ -15,9 +15,9 @@ import rx.Observable;
 public interface GithubAPI {
 
     @GET("users/{user}")
-    Observable<User> getUser(@Path("user") String user);
+    Flowable<User> getUser(@Path("user") String user);
 
     @GET("users/{user}/repos")
-    Observable<List<Repo>> getRepos(@Path("user") String user);
+    Flowable<List<Repo>> getRepos(@Path("user") String user);
 
 }

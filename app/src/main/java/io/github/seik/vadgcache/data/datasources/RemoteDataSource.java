@@ -6,7 +6,7 @@ import io.github.seik.vadgcache.data.StorageHandler;
 import io.github.seik.vadgcache.models.Repo;
 import io.github.seik.vadgcache.models.User;
 import io.github.seik.vadgcache.retrofit.GithubAPI;
-import rx.Observable;
+import io.reactivex.Flowable;
 
 /**
  * Created by Ivan
@@ -20,15 +20,13 @@ public class RemoteDataSource {
         this.service = service;
     }
 
-
-    public Observable<User> getUser(String username) {
+    public Flowable<User> getUser(String username) {
         return service.getUser(username)
                 .doOnNext(StorageHandler::saveObject);
     }
 
-    public Observable<List<Repo>> getRepos(String username) {
+    public Flowable<List<Repo>> getRepos(String username) {
         return service.getRepos(username)
-                .doOnNext(StorageHandler::saveObjects);
+                .doAfterNext(StorageHandler::saveObjects);
     }
-
 }

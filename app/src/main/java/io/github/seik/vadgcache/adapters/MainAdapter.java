@@ -48,7 +48,6 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     class UserViewHolder extends RecyclerView.ViewHolder {
 
-
         @BindView(R.id.profileImage)
         CircleImageView profileImage;
         @BindView(R.id.userIdentity)

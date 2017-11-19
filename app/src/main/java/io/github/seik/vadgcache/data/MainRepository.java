@@ -1,5 +1,6 @@
 package io.github.seik.vadgcache.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.github.seik.vadgcache.data.datasources.LocalDataSource;
@@ -7,9 +8,11 @@ import io.github.seik.vadgcache.data.datasources.RemoteDataSource;
 import io.github.seik.vadgcache.models.Repo;
 import io.github.seik.vadgcache.models.User;
 import io.github.seik.vadgcache.retrofit.GithubAPI;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.Flowable;
+import io.reactivex.Maybe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Predicate;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Iván
@@ -25,31 +28,28 @@ public class MainRepository {
         this.remoteDataSource = new RemoteDataSource(service);
     }
 
-    public Observable<User> getUser(String username) {
-
-        Observable<User> localObservable = localDataSource.getUser()
+    public Flowable<User> getUser(String username) {
+        Flowable<User> localObservable = localDataSource.getUser()
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread());
 
-
-        Observable<User> remoteObservable = remoteDataSource.getUser(username)
+        Flowable<User> remoteObservable = remoteDataSource.getUser(username)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
 
-
-        return Observable.concat(localObservable, remoteObservable);
+        return Flowable.concat(localObservable, remoteObservable);
     }
 
-    public Observable<List<Repo>> getRepos(String username) {
-        Observable<List<Repo>> localObservable = localDataSource.getRepos()
+    public Flowable<List<Repo>> getRepos(String username) {
+        Flowable<List<Repo>> localObservable = localDataSource.getRepos()
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread());
 
-        Observable<List<Repo>> remoteObservable = remoteDataSource.getRepos(username)
+        Flowable<List<Repo>> remoteObservable = remoteDataSource.getRepos(username)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
 
-        return Observable.concat(localObservable, remoteObservable);
+        return Flowable.concat(localObservable, remoteObservable);
     }
 
 }

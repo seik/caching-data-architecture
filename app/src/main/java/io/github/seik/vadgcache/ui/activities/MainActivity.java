@@ -19,8 +19,8 @@ import io.github.seik.vadgcache.R;
 import io.github.seik.vadgcache.adapters.MainAdapter;
 import io.github.seik.vadgcache.data.MainRepository;
 import io.github.seik.vadgcache.models.User;
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     MainRepository mainRepository;
 
-    CompositeSubscription subscriptions = new CompositeSubscription();
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    MainAdapter adapter;
+    private MainAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,36 +50,30 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false));
 
-        Subscription userSubscription = mainRepository.getUser("seik").subscribe(user -> {
-
+        Disposable userDisposable = mainRepository.getUser("seik").subscribe(user -> {
             adapter.setUser(user);
             adapter.notifyDataSetChanged();
-
         }, throwable -> {
-
             Log.d("ErrorDataLoading", throwable.getMessage());
             Snackbar.make(parentLayout, getString(R.string.error),
                     Snackbar.LENGTH_SHORT).show();
-
         });
 
-        Subscription reposSubscription = mainRepository.getRepos("seik").subscribe(repos -> {
-
+        Disposable reposDisposable = mainRepository.getRepos("seik").subscribe(repos -> {
             adapter.setRepos(repos);
             adapter.notifyDataSetChanged();
-
         }, throwable -> {
             Log.d("ErrorDataLoading", throwable.getMessage());
             Snackbar.make(parentLayout, getString(R.string.error),
                     Snackbar.LENGTH_SHORT).show();
         });
 
-        subscriptions.addAll(userSubscription, reposSubscription);
+        compositeDisposable.addAll(userDisposable, reposDisposable);
     }
 
     @Override
     protected void onDestroy() {
+        compositeDisposable.dispose();
         super.onDestroy();
-        subscriptions.unsubscribe();
     }
 }
