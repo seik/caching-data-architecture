@@ -1,6 +1,5 @@
 package io.github.seik.vadgcache.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.github.seik.vadgcache.data.datasources.LocalDataSource;
@@ -9,9 +8,7 @@ import io.github.seik.vadgcache.models.Repo;
 import io.github.seik.vadgcache.models.User;
 import io.github.seik.vadgcache.retrofit.GithubAPI;
 import io.reactivex.Flowable;
-import io.reactivex.Maybe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 
 /**

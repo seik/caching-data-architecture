@@ -31,6 +31,7 @@ public class App extends Application {
         Realm.init(this);
 
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
                 .build();
 
         Realm.setDefaultConfiguration(realmConfiguration);

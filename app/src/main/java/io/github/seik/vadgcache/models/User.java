@@ -16,7 +16,7 @@ public class User extends RealmObject {
     private String name;
     @SerializedName("avatar_url")
     private String profilePhoto;
-    private String email;
+    private String bio;
     @SerializedName("public_repos")
     private int repos;
     private int followers;
@@ -46,12 +46,12 @@ public class User extends RealmObject {
         this.profilePhoto = profilePhoto;
     }
 
-    public String getEmail() {
-        return email;
+    public String getBio() {
+        return bio;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public int getRepos() {

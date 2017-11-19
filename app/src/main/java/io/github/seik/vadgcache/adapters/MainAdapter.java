@@ -105,8 +105,10 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             userHolder.followers.setText(String.valueOf(user.getFollowers()));
             userHolder.repos.setText(String.valueOf(user.getRepos()));
 
+            String bio = (user.getBio() == null) ? "None" : user.getBio();
+
             userHolder.userIdentity.setText(context.getString(R.string.userIdentity,
-                    user.getName(), user.getEmail()));
+                    user.getName(), bio));
 
         } else if (holder instanceof RepoViewHolder) {
             RepoViewHolder repoHolder = (RepoViewHolder) holder;
