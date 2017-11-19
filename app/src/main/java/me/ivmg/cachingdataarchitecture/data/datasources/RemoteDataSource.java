@@ -1,11 +1,11 @@
-package io.github.seik.vadgcache.data.datasources;
+package me.ivmg.cachingdataarchitecture.data.datasources;
 
 import java.util.List;
 
-import io.github.seik.vadgcache.data.StorageHandler;
-import io.github.seik.vadgcache.models.Repo;
-import io.github.seik.vadgcache.models.User;
-import io.github.seik.vadgcache.retrofit.GithubAPI;
+import me.ivmg.cachingdataarchitecture.data.StorageHandler;
+import me.ivmg.cachingdataarchitecture.models.User;
+import me.ivmg.cachingdataarchitecture.retrofit.GithubAPI;
+import me.ivmg.cachingdataarchitecture.models.Repo;
 import io.reactivex.Flowable;
 
 /**

@@ -1,9 +1,9 @@
-package io.github.seik.vadgcache.retrofit;
+package me.ivmg.cachingdataarchitecture.retrofit;
 
 import java.util.List;
 
-import io.github.seik.vadgcache.models.Repo;
-import io.github.seik.vadgcache.models.User;
+import me.ivmg.cachingdataarchitecture.models.User;
+import me.ivmg.cachingdataarchitecture.models.Repo;
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

@@ -1,12 +1,12 @@
-package io.github.seik.vadgcache.data;
+package me.ivmg.cachingdataarchitecture.data;
 
 import java.util.List;
 
-import io.github.seik.vadgcache.data.datasources.LocalDataSource;
-import io.github.seik.vadgcache.data.datasources.RemoteDataSource;
-import io.github.seik.vadgcache.models.Repo;
-import io.github.seik.vadgcache.models.User;
-import io.github.seik.vadgcache.retrofit.GithubAPI;
+import me.ivmg.cachingdataarchitecture.models.User;
+import me.ivmg.cachingdataarchitecture.retrofit.GithubAPI;
+import me.ivmg.cachingdataarchitecture.data.datasources.LocalDataSource;
+import me.ivmg.cachingdataarchitecture.data.datasources.RemoteDataSource;
+import me.ivmg.cachingdataarchitecture.models.Repo;
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

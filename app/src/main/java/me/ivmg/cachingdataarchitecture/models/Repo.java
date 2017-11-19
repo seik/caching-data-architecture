@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.models;
+package me.ivmg.cachingdataarchitecture.models;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.models;
+package me.ivmg.cachingdataarchitecture.models;
 
 import com.google.gson.annotations.SerializedName;
 

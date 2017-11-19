@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache;
+package me.ivmg.cachingdataarchitecture;
 
 import org.junit.Test;
 

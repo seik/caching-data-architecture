@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.data;
+package me.ivmg.cachingdataarchitecture.data;
 
 import java.util.List;
 

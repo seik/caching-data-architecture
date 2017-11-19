@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.ui.activities;
+package me.ivmg.cachingdataarchitecture.ui.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -14,11 +14,11 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.github.seik.vadgcache.App;
-import io.github.seik.vadgcache.R;
-import io.github.seik.vadgcache.adapters.MainAdapter;
-import io.github.seik.vadgcache.data.MainRepository;
-import io.github.seik.vadgcache.models.User;
+import io.github.seik.cachingdataarchitecture.R;
+import me.ivmg.cachingdataarchitecture.App;
+import me.ivmg.cachingdataarchitecture.data.MainRepository;
+import me.ivmg.cachingdataarchitecture.models.User;
+import me.ivmg.cachingdataarchitecture.adapters.MainAdapter;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.ui.utils;
+package me.ivmg.cachingdataarchitecture.ui.utils;
 
 /**
  * Created by Iván

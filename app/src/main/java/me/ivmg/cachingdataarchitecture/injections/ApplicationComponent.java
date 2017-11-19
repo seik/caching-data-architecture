@@ -1,9 +1,9 @@
-package io.github.seik.vadgcache.injections;
+package me.ivmg.cachingdataarchitecture.injections;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import io.github.seik.vadgcache.ui.activities.MainActivity;
+import me.ivmg.cachingdataarchitecture.ui.activities.MainActivity;
 
 /**
  * Created by Iván

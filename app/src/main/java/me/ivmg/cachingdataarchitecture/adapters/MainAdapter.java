@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.adapters;
+package me.ivmg.cachingdataarchitecture.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -14,9 +14,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
-import io.github.seik.vadgcache.R;
-import io.github.seik.vadgcache.models.Repo;
-import io.github.seik.vadgcache.models.User;
+import io.github.seik.cachingdataarchitecture.R;
+import me.ivmg.cachingdataarchitecture.models.Repo;
+import me.ivmg.cachingdataarchitecture.models.User;
 
 /**
  * Created by Iván

@@ -1,12 +1,12 @@
-package io.github.seik.vadgcache;
+package me.ivmg.cachingdataarchitecture;
 
 import android.app.Application;
 
-import io.github.seik.vadgcache.injections.AppModule;
-import io.github.seik.vadgcache.injections.ApplicationComponent;
-import io.github.seik.vadgcache.injections.DaggerApplicationComponent;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import me.ivmg.cachingdataarchitecture.injections.AppModule;
+import me.ivmg.cachingdataarchitecture.injections.ApplicationComponent;
+import me.ivmg.cachingdataarchitecture.injections.DaggerApplicationComponent;
 
 /**
  * Created by Iván

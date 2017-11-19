@@ -1,4 +1,4 @@
-package io.github.seik.vadgcache.injections;
+package me.ivmg.cachingdataarchitecture.injections;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.github.seik.vadgcache.data.MainRepository;
-import io.github.seik.vadgcache.retrofit.GithubAPI;
+import me.ivmg.cachingdataarchitecture.data.MainRepository;
+import me.ivmg.cachingdataarchitecture.retrofit.GithubAPI;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
